@@ -2,7 +2,7 @@
 /**
  * Xml controller.
  *
- * @package    PNP4Nagios
+ * @package    PNPerf
  * @author     Jorg Linge
  * @license    GPL
  */

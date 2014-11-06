@@ -13,7 +13,7 @@ class Config_Model extends System_Model
         if(getenv('PNP_CONFIG_FILE') != ""){
             $config = getenv('PNP_CONFIG_FILE');
         }elseif(OMD){
-            $config = OMD_SITE_ROOT.'/etc/pnp4nagios/config';
+            $config = OMD_SITE_ROOT.'/etc/pnperf/config';
         }else{
             $config = Kohana::config('core.pnp_etc_path')."/config";
         }

@@ -2,7 +2,7 @@
 /**
  * system controller.
  *
- * @package pnp4nagios 
+ * @package pnperf 
  * @author  Joerg Linge
  * @license GPL
  */
@@ -16,6 +16,7 @@ class System_Controller extends Template_Controller {
         $this->config     = new Config_Model();
         $this->rrdtool    = new Rrdtool_Model();
         $this->auth       = new Auth_Model();
+        $this->basket     = new Basket_Model();
 	#$this->system	  = new System_Model();
 
         $this->config->read_config();

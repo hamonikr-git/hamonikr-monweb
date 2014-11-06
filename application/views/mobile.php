@@ -14,7 +14,7 @@
 
 <div data-role="page" data-theme="b" data-add-back-btn="true">
 <div data-role="header">
-<h1>PNP4Nagios</h1>
+<h1>PNPerf</h1>
 <a href="<?php echo url::base(TRUE)?>/mobile" data-icon="home" class="ui-btn-right">Home</a>
 </div><!-- /header -->
 <?php if (!empty($home)) {

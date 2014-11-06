@@ -22,7 +22,7 @@
 <tr valign="top"><td>
 <div class="left ui-widget">
 <div class="p2 ui-widget-header ui-corner-top">
-<?php echo "PNP4Nagios Version ".PNP_VERSION ?>
+<?php echo "PNPerf Version ".PNP_VERSION ?>
 </div>
 <div class="p4 ui-widget-content ui-corner-bottom" style="width: 640px">
 <div style="padding: 0pt 0.7em;" class="ui-state-error ui-corner-all">

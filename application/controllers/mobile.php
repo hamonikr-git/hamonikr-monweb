@@ -2,7 +2,7 @@
 /**
  * Mobile controller.
  *
- * @package    PNP4Nagios
+ * @package    PNPerf
  * @author     Joerg Linge
  * @license    GPL
  */

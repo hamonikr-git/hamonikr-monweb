@@ -2,7 +2,7 @@
 /**
  * PDF controller.
  *
- * @package    PNP4Nagios
+ * @package    PNPerf
  * @author     Joerg Linge
  * @license    GPL
  */
@@ -127,7 +127,7 @@ class Pdf_Controller extends System_Controller  {
             $pdf->CELL(120, $cell_height, '', 0, 1);
             unlink($img['file']);
         }
-        $pdf->Output("pnp4nagios.pdf","I");
+        $pdf->Output("pnperf.pdf","I");
 
     }
 
@@ -190,7 +190,7 @@ class Pdf_Controller extends System_Controller  {
             $pdf->CELL(120, $cell_height, '', 0, 1);
             unlink($img['file']);
         }
-        $pdf->Output("pnp4nagios.pdf","I");
+        $pdf->Output("pnperf.pdf","I");
     }
 
     public function basket(){
@@ -201,7 +201,7 @@ class Pdf_Controller extends System_Controller  {
             $this->view = pnp::clean($_GET['view']);
         }
         $this->data->getTimeRange($this->start,$this->end,$this->view);
-        $basket = $this->session->get("basket");
+        $basket = $this->basket->getBasketItems($this->session->get("basketname"));
         if(is_array($basket) && sizeof($basket) > 0){
              $this->data->buildBasketStruct($basket,$this->view);
         }
@@ -248,7 +248,7 @@ class Pdf_Controller extends System_Controller  {
             $pdf->CELL(120, $cell_height, '', 0, 1);
             unlink($img['file']);
         }
-        $pdf->Output("pnp4nagios.pdf","I");
+        $pdf->Output("pnperf.pdf","I");
 
     }
 }

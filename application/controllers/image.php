@@ -2,7 +2,7 @@
 /**
  * Image controller.
  *
- * @package    pnp4nagios
+ * @package    pnperf
  * @author     Joerg Linge
  * @license    GPL
  */

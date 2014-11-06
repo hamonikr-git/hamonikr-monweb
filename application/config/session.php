@@ -15,7 +15,7 @@ $config['storage'] = '';
  * Session name.
  * It must contain only alphanumeric characters and underscores. At least one letter must be present.
  */
-$config['name'] = 'pnp4nagios';
+$config['name'] = 'pnperf';
 
 /**
  * Session parameters to validate: user_agent, ip_address, expiration.

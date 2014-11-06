@@ -76,31 +76,91 @@ jQuery(document).ready(function(){
             data: { item: item },
             success: function(msg){
                 jQuery("#basket_items").html(msg);
-                window.location.reload() 
+                //alert(path + "ajax/basket/add" + "\n" + itemid + "\n" + msg);
+                //window.location.reload() 
             }
         });
     });
     jQuery("#basket-clear").live("click", function(){
+        var basketname = jQuery("#basket-list").val();
+		//alert("AJAX 0:" + path + "ajax/basket/list" + "\n" +  basketname);
+        if(confirm("Do you really want clear all item of '" + basketname + "'?") == 1 ) {
+	        jQuery.ajax({
+	            type: "POST",
+	            url: path + "ajax/basket/clear",
+				data: { basketname: basketname },
+	            success: function(msg){
+	                //alert("AJAX 1:" + path + "ajax/basket/clear" + "\n" + msg);
+	                window.location.reload() 
+	            }
+	        });
+		}
+    });
+    jQuery("#basket-list").live("change", function(){
+        var basketname = jQuery("#basket-list").val();
         jQuery.ajax({
             type: "POST",
-            url: path + "ajax/basket/clear",
+            url: path + "ajax/basket/list",
+			data: { basketname: basketname },
             success: function(msg){
+                jQuery("#basket_items").html(msg);
+        		//alert("AJAX JQuery2:" + path + "ajax/basket/list" + "\n" +  msg);
                 window.location.reload() 
             }
         });
+    });
+    jQuery("#basket-save").live("click", function(){
+        var basketname = jQuery("#basket-name").val();
+        //alert("AJAX JQuery:" + path + "ajax/basket/save" + "\n" +  basketname);
+		if (basketname.length > 0) {
+	        jQuery.ajax({
+	            type: "POST",
+	            url: path + "ajax/basket/save",
+	            data: { basketname: basketname },
+	            success: function(msg){
+	                jQuery("#basket_lists").html(msg);
+	                //alert("AJAX Success:" + path + "ajax/basket/save" + "\n" + msg);
+                	window.location.reload() 
+	            }
+	        });
+		} else {
+			alert("There is no Basket name.");
+		} 
+    });
+    jQuery("#basket-delete").live("click", function(){
+        var basketname = jQuery("#basket-list").val();
+        //alert("AJAX JQuery:" + path + "ajax/basket/delete" + "\n" +  basketname);
+		if (basketname.length > 0) {
+        	if(confirm("Do you really want clear all item of '" + basketname + "'?") == 1 ) {
+		        jQuery.ajax({
+		            type: "POST",
+		            url: path + "ajax/basket/delete",
+		            data: { basketname: basketname },
+		            success: function(msg){
+		                jQuery("#basket_lists").html(msg);
+		                //alert("AJAX Success:" + path + "ajax/basket/delete" + "\n" + msg);
+	                	window.location.reload() 
+		            }
+		        });
+			}
+		} else {
+			alert("There is no Basket name.");
+		} 
     });
     jQuery("#basket-show").live("click", function(){
                 window.location.href = path + 'page/basket' 
     });
     jQuery(".basket_action_remove a").live("click", function(){
         var item = (this.id)
+		//alert( path + "ajax/basket/remove" + "\n" + item);
         jQuery.ajax({
             type: "POST",
             url: path + "ajax/basket/remove/",
             data: { item: item },
             success: function(msg){
+                //alert(path + "ajax/basket/remove" + "\n" + item + "\n" + msg);
                 jQuery("#basket_items").html(msg);
-                window.location.reload() 
+                //window.location.reload() 
             }
         });
     });
@@ -112,7 +172,7 @@ jQuery(document).ready(function(){
                 url: path + "ajax/basket/sort",
                 data: { items: items },
                 success: function(msg){
-                    window.location.reload() 
+                    //window.location.reload() 
                 }
             });
         }

@@ -2,7 +2,7 @@
 /**
  * Graph controller.
  *
- * @package    PNP4Nagios
+ * @package    PNPerf
  * @author     Joerg Linge
  * @license    GPL
  */
@@ -57,7 +57,9 @@ class Page_Controller extends System_Controller  {
     }
 
     public function basket(){
-        $basket = $this->session->get("basket");
+
+        $basket = $this->basket->getBasketItems($this->session->get("basketname"));
+
         if(is_array($basket) && sizeof($basket) > 0){
             $this->data->buildBasketStruct($basket,$this->view);
             $this->template->page->basket_box         = $this->add_view('basket_box');
